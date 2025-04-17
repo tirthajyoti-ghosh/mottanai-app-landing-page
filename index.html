@@ -1,229 +1,146 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <script defer src="/_vercel/insights/script.js"></script>
-      <title>mottanai | mindful budgeting</title>
-      <style>
-          * {
-              margin: 0;
-              padding: 0;
-              box-sizing: border-box;
-              font-family: 'Helvetica Neue', Arial, sans-serif;
-          }
-          
-          body {
-              color: #2E3639; /* Gunmetal */
-              line-height: 1.5;
-              overflow-x: hidden;
-              background-color: #FBF2E1; /* Old Lace as fallback */
-              position: relative;
-          }
-          
-          body::before {
-              content: '';
-              position: fixed;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background-image: url('japanese-landscape.jpeg'); /* Your actual image */
-              background-size: cover;
-              background-position: center;
-              opacity: 1;
-              z-index: -1;
-          }
-          
-          .overlay {
-              position: fixed;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background: linear-gradient(to bottom, rgba(251, 242, 225, 0.9), rgba(205, 199, 185, 0.8));
-              z-index: -1;
-          }
-          
-          .container {
-              max-width: 1400px;
-              margin: 0 auto;
-              padding: 0 30px;
-              position: relative;
-          }
-          
-          header {
-              padding: 30px 0;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-          }
-          
-          .logo {
-              font-size: 32px;
-              font-weight: 700;
-              letter-spacing: -0.5px;
-              color: #2E3639; /* Gunmetal */
-          }
-          
-          nav a {
-              margin-left: 25px;
-              text-decoration: none;
-              color: #525657; /* Davys Gray */
-              font-size: 15px;
-              font-weight: 400;
-              transition: color 0.3s;
-          }
-          
-          nav a:hover {
-              color: #2E3639; /* Gunmetal */
-          }
-          
-          .hero {
-              min-height: 80vh;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              text-align: center;
-              position: relative;
-              padding: 40px 0;
-          }
-          
-          h1 {
-              font-size: 42px;
-              font-weight: 300;
-              margin-bottom: 15px;
-              letter-spacing: -0.5px;
-              color: #2E3639; /* Gunmetal */
-          }
-          
-          .tagline {
-              font-size: 16px;
-              color: #606260; /* Dim Gray */
-              margin-bottom: 40px;
-              max-width: 500px;
-          }
-          
-          .waitlist-form {
-              display: flex;
-              margin-top: 40px;
-          }
-          
-          .email-input {
-              padding: 12px 20px;
-              width: 300px;
-              border: 1px solid #CDC7B9; /* Bone */
-              background-color: rgba(251, 242, 225, 0.5); /* Semi-transparent Old Lace */
-              color: #2E3639; /* Gunmetal */
-              border-radius: 25px 0 0 25px;
-              font-size: 15px;
-              outline: none;
-          }
-          
-          .email-input::placeholder {
-              color: #606260; /* Dim Gray */
-              opacity: 0.7;
-          }
-          
-          .submit-btn {
-              background-color: #2E3639; /* Gunmetal */
-              color: #FBF2E1; /* Old Lace */
-              border: none;
-              padding: 12px 25px;
-              border-radius: 0 25px 25px 0;
-              font-size: 15px;
-              cursor: pointer;
-              font-weight: 500;
-              transition: background-color 0.3s;
-          }
-          
-          .submit-btn:hover {
-              background-color: #525657; /* Davys Gray */
-          }
-          
-          .philosophy {
-              padding: 100px 0;
-              text-align: center;
-              position: relative;
-          }
-          
-          .japanese-character {
-              font-size: 120px;
-              color: rgba(46, 54, 57, 0.1); /* Transparent Gunmetal */
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              z-index: -1;
-          }
-          
-          .philosophy-content {
-              max-width: 500px;
-              margin: 0 auto;
-              position: relative;
-              z-index: 1;
-          }
-          
-          .japanese-term {
-              font-size: 24px;
-              margin-bottom: 15px;
-              font-weight: 300;
-              color: #2E3639; /* Gunmetal */
-          }
-          
-          footer {
-              padding: 60px 0 30px;
-              text-align: center;
-              color: #606260; /* Dim Gray */
-              font-size: 14px;
-          }
-          
-          @media (max-width: 768px) {
-              h1 {
-                  font-size: 36px;
-              }
-              
-              .email-input {
-                  width: 200px;
-              }
-          }
-      </style>
-  </head>
-  <body>
-      <div class="overlay"></div>
-      <div class="container">
-          <header>
-              <div class="logo">mottanai</div>
-              <nav>
-                  <a href="#philosophy">philosophy</a>
-                  <a href="#waitlist">waitlist</a>
-              </nav>
-          </header>
-          
-          <section class="hero">
-              <h1>mindful spending, mindful living</h1>
-              <p class="tagline">A gentle approach to managing your finances, inspired by the Japanese philosophy of valuing what you have.</p>
-              
-              <div id="waitlist">
-                  <form class="waitlist-form">
-                      <input type="email" placeholder="Your email" class="email-input">
-                      <button type="submit" class="submit-btn">Join waitlist</button>
-                  </form>
-              </div>
-          </section>
-      </div>
-      
-      <section class="philosophy" id="philosophy">
-          <div class="japanese-character">もったいない</div>
-          <div class="philosophy-content">
-              <h2 class="japanese-term">mottanai (もったいない)</h2>
-              <p>The gentle reminder to recognize the inherent value in everything and minimize waste. Let this philosophy guide your financial journey.</p>
-          </div>
-      </section>
-      
-      <footer>
-          <p>© 2025 mottanai</p>
-      </footer>
-  </body>
-  </html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script defer src="/_vercel/insights/script.js"></script>
+        <title>mottanai | mindful budgeting</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="overlay"></div>
+        <div class="container">
+            <header>
+                <div class="logo">mottanai</div>
+                <nav>
+                    <a href="#philosophy">philosophy</a>
+                    <a href="#waitlist">waitlist</a>
+                </nav>
+            </header>
+
+            <section class="hero">
+                <h1>mindful spending, mindful living</h1>
+                <p class="tagline">
+                    A gentle approach to managing your finances, inspired by the
+                    Japanese philosophy of valuing what you have.
+                </p>
+
+                <div id="waitlist">
+                    <form class="waitlist-form" id="waitlistForm">
+                        <input
+                            type="email"
+                            placeholder="Your email"
+                            class="email-input"
+                            id="emailInput"
+                            required
+                        />
+                        <button
+                            type="submit"
+                            class="submit-btn"
+                            id="submitButton"
+                        >
+                            Join waitlist
+                        </button>
+                    </form>
+                    <div
+                        id="formMessage"
+                        style="
+                            margin-top: 15px;
+                            display: none;
+                            text-align: center;
+                            font-size: 14px;
+                        "
+                    ></div>
+                </div>
+            </section>
+        </div>
+
+        <section class="philosophy" id="philosophy">
+            <div class="japanese-character">もったいない</div>
+            <div class="philosophy-content">
+                <h2 class="japanese-term">mottanai (もったいない)</h2>
+                <p>
+                    The gentle reminder to recognize the inherent value in
+                    everything and minimize waste. Let this philosophy guide
+                    your financial journey.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 mottanai</p>
+        </footer>
+
+        <script>
+            document
+                .getElementById("waitlistForm")
+                .addEventListener("submit", async function (e) {
+                    e.preventDefault();
+
+                    const email = document.getElementById("emailInput").value;
+                    const button = document.getElementById("submitButton");
+
+                    // Basic validation
+                    if (!email || !email.includes("@")) {
+                        showMessage(
+                            "Please enter a valid email address.",
+                            "error"
+                        );
+                        return;
+                    }
+
+                    // Show loading state
+                    button.disabled = true;
+                    button.textContent = "Joining...";
+
+                    try {
+                        const response = await fetch("/api/subscribe", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({ email }),
+                        });
+
+                        const result = await response.json();
+
+                        if (response.ok) {
+                            showMessage(
+                                "Thank you for joining our waitlist!",
+                                "success"
+                            );
+                            document.getElementById("emailInput").value = "";
+                        } else {
+                            showMessage(
+                                result.error ||
+                                    "Something went wrong. Please try again.",
+                                "error"
+                            );
+                        }
+                    } catch (error) {
+                        showMessage(
+                            "An error occurred. Please try again later.",
+                            "error"
+                        );
+                    } finally {
+                        // Reset button state
+                        button.disabled = false;
+                        button.textContent = "Join waitlist";
+                    }
+                });
+
+            function showMessage(message, type) {
+                const messageDiv = document.getElementById("formMessage");
+                messageDiv.textContent = message;
+                messageDiv.style.display = "block";
+                messageDiv.style.color =
+                    type === "success" ? "#4CAF50" : "#F44336";
+
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    messageDiv.style.display = "none";
+                }, 5000);
+            }
+        </script>
+    </body>
+</html>
