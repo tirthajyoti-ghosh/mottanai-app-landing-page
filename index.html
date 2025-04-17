@@ -1,96 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="/_vercel/insights/script.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <title>Vercel HTML Starter</title>
-    <meta
-      name="description"
-      content="High-performance HTML based website template."
-    />
-  </head>
-  <body>
-    <h1>Vercel HTML Starter</h1>
-    <p>
-      This template is a simple, but powerful single
-      <code>index.html</code> file deployed to
-      <a href="https://vercel.com">Vercel</a>. When your site is deployed, all
-      static assets (like HTML, JavaScript, CSS, images, and more) are deployed
-      globally to every
-      <a href="https://vercel.com/docs/concepts/edge-network/overview"
-        >Vercel Edge Network</a
-      >
-      region.
-    </p>
-    <h2>Simple, privacy-friendly analytics</h2>
-    <p>
-      Want to understand your visitor traffic? Vercel Analytics gives you
-      first-party, privacy-friendly traffic analytics for your HTML site. This
-      template is already configured using the following script:
-    </p>
-    <pre><code>&lt;script defer src="/_vercel/insights/script.js"&gt;&lt;/script&gt;</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/analytics">Vercel Analytics</a>.
-    </p>
-    <h2>Integrated with git</h2>
-    <p>
-      Deploying updates to your site is as simple as
-      <code>git push</code> thanks to Vercel's advanced
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-      Support for GitHub, GitLab, Bitbucket is zero-configuration, and with the
-      flexible Vercel CLI and API, you can integrate with any tool possible.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-    </p>
-    <h2>Fast <code>gzip</code> compression</h2>
-    <p>
-      To help ensure the smallest possible file sizes for your static assets,
-      the Vercel Edge Network compresses files by default using
-      <code>gzip</code>. You can also optionally use
-      <code>brotli</code> compressesion if you prefer.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/edge-network/compression"
-        >compression</a
-      >.
-    </p>
-    <h2>Advanced routing configuration</h2>
-    <p>
-      Vercel gives you a variety of ways to configure the routing of your
-      website. For example, adding redirects, rewrites, or headers to your page.
-      While you can use <code>vercel.json</code> to define these through JSON,
-      you can also express your routing configuration as code using
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-    <p>
-      Middleware runs before the
-      <a href="https://vercel.com/docs/concepts/edge-network/caching"
-        >Vercel Edge Network Cache</a
-      >, so you can configure routing exactly as your application needs. For
-      example, this template uses <code>middleware.js</code> defined in the root
-      of the repository to add additional security headers to the site:
-    </p>
-    <pre><code>referrer-policy: origin-when-cross-origin
-strict-transport-security: max-age=31536000; includeSubDomains; preload
-x-content-type-options: nosniff
-x-dns-prefetch-control: on
-x-frame-options: DENY</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="/_vercel/insights/script.js"></script>
+  <title>mottanai | mindful budgeting</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    body {
+      color: #fff;
+      line-height: 1.5;
+      overflow-x: hidden;
+      background-color: #15242D;
+      /* Gunmetal as fallback */
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('japanese-painting.png');
+      /* Replace with your actual image */
+      background-size: cover;
+      background-position: center;
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(21, 36, 45, 0.5), rgba(78, 41, 42, 0.8));
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 30px;
+      position: relative;
+    }
+
+    header {
+      padding: 30px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #CD9D80;
+      /* Buff color */
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #CD9D80;
+      /* Buff color */
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 40px 0;
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 300;
+      margin-bottom: 15px;
+      letter-spacing: -0.5px;
+      color: #CD9D80;
+      /* Buff color */
+    }
+
+    .tagline {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 40px;
+      max-width: 500px;
+    }
+
+    .waitlist-form {
+      display: flex;
+      margin-top: 40px;
+    }
+
+    .email-input {
+      padding: 12px 20px;
+      width: 300px;
+      border: none;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-radius: 25px 0 0 25px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .email-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .submit-btn {
+      background-color: #CD9D80;
+      /* Buff color */
+      color: #15242D;
+      /* Gunmetal */
+      border: none;
+      padding: 12px 25px;
+      border-radius: 0 25px 25px 0;
+      font-size: 15px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #d9b094;
+    }
+
+    .philosophy {
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .japanese-character {
+      font-size: 120px;
+      color: rgba(255, 255, 255, 0.1);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    .philosophy-content {
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .japanese-term {
+      font-size: 24px;
+      margin-bottom: 15px;
+      font-weight: 300;
+      color: #CD9D80;
+      /* Buff color */
+    }
+
+    footer {
+      padding: 60px 0 30px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      .email-input {
+        width: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay"></div>
+  <div class="container">
+    <header>
+      <div class="logo">mottanai</div>
+      <nav>
+        <a href="#philosophy">philosophy</a>
+        <a href="#waitlist">waitlist</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>mindful spending, mindful living</h1>
+      <p class="tagline">A gentle approach to managing your finances, inspired by the Japanese philosophy of valuing
+        what you have.</p>
+
+      <div id="waitlist">
+        <form class="waitlist-form">
+          <input type="email" placeholder="Your email" class="email-input">
+          <button type="submit" class="submit-btn">Join waitlist</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <section class="philosophy" id="philosophy">
+    <div class="japanese-character">もったいない</div>
+    <div class="philosophy-content">
+      <h2 class="japanese-term">mottanai (もったいない)</h2>
+      <p>The gentle reminder to recognize the inherent value in everything and minimize waste. Let this philosophy guide
+        your financial journey.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 mottanai</p>
+  </footer>
+</body>
+
 </html>
